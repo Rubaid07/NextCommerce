@@ -25,22 +25,20 @@ export default function AddProductForm({ onProductAdded }) {
             });
 
             if (res.ok) {
-                toast.success('Product added successfully!'); // Success toast
+                toast.success('Product added successfully!');
                 onProductAdded();
                 setName("");
                 setDescription("");("");
             } else {
-                toast.error('Failed to add product.'); // Error toast
+                toast.error('Failed to add product.'); 
             }
         } catch (err) {
-            toast.error('An unexpected error occurred.'); // Error toast
+            toast.error('An unexpected error occurred.');
             console.error("Error submitting form:", err);
         } finally {
             setLoading(false);
         }
     };
-
-    // ... (rest of the form JSX remains the same, remove the error state and message display)
     return (
         <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md max-w-lg mx-auto">
             <div className="mb-4">

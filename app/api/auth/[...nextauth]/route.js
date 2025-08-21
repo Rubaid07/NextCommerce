@@ -1,8 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-console.log(">>> NextAuth API route loaded");
-
 const handler = NextAuth({
   providers: [
     GoogleProvider({
