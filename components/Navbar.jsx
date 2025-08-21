@@ -3,13 +3,31 @@
 import Link from "next/link";
 import { Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useSession, signOut } from "next-auth/react";
+import { useSession, signOut, signIn } from "next-auth/react";
 
-export default function Navbar({ toggleTheme, currentTheme }) {
+export default function Navbar() {
   const { data: session, status } = useSession();
   const [mounted, setMounted] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState("light");
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      document.documentElement.classList.add(savedTheme);
+      setCurrentTheme(savedTheme);
+    } else {
+      document.documentElement.classList.add("light");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    document.documentElement.classList.remove(currentTheme);
+    document.documentElement.classList.add(newTheme);
+    localStorage.setItem("theme", newTheme);
+    setCurrentTheme(newTheme);
+  };
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
@@ -21,16 +39,17 @@ export default function Navbar({ toggleTheme, currentTheme }) {
         <div className="flex items-center gap-6">
           <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Home</Link>
           <Link href="/products" className="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Products</Link>
-
-          {!session && status !== "loading" && (
-            <Link href="/login" className="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Login</Link>
+          
+          {session && (
+            <Link href="/dashboard/add-product" className="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Dashboard</Link>
           )}
 
+          {!session && status !== "loading" && (
+            <button onClick={() => signIn()} className="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Login</button>
+          )}
+          
           {session && (
-            <>
-              <Link href="/dashboard/products" className="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Dashboard</Link>
-              <button onClick={() => signOut({ callbackUrl: "/" })} className="hover:text-red-500 font-medium">Logout</button>
-            </>
+            <button onClick={() => signOut()} className="hover:text-red-500 font-medium">Logout</button>
           )}
 
           {mounted && (

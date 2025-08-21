@@ -3,9 +3,9 @@ import { redirect } from "next/navigation";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import DashboardContainer from "@/components/DashboardContainer";
+import DashboardProducts from "@/components/DashboardProducts";
 
-export default async function AddProductPage() {
+export default async function DashboardProductsPage() {
     const session = await getServerSession(authOptions);
 
     if (!session) {
@@ -16,7 +16,8 @@ export default async function AddProductPage() {
         <>
             <Navbar />
             <main className="container mx-auto p-8">
-                <DashboardContainer />
+                <h1 className="text-3xl font-bold mb-8 text-center">Manage Products</h1>
+                <DashboardProducts />
             </main>
             <Footer />
         </>

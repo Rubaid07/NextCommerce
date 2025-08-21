@@ -1,4 +1,3 @@
-// file: src/app/page.jsx
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";

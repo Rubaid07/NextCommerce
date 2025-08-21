@@ -1,9 +1,7 @@
-// file: src/app/products/page.jsx
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 
-// আপনার ব্যাকএন্ডের URL
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000/api";
 
 async function getProducts() {

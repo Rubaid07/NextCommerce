@@ -1,4 +1,4 @@
-// file: src/app/layout.jsx
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import AuthProvider from "./providers";
 
@@ -7,6 +7,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body>
                 <AuthProvider>{children}</AuthProvider>
+                 <Toaster /> 
             </body>
         </html>
     );
