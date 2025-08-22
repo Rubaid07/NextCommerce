@@ -52,7 +52,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <Link
             href="/"
-            className="text-2xl font-bold text-blue-600 dark:text-blue-400 flex items-center gap-2"
+            className="text-2xl font-medium tracking-wider text-blue-600 dark:text-blue-400 flex items-center gap-2"
           >
             <ShoppingCart size={24} />
             <span>NextCommerce</span>

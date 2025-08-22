@@ -29,7 +29,7 @@ export default async function ProductDetailsPage({ params }) {
                         </svg>
                     </div>
                     <h1 className="text-2xl font-bold text-gray-400 mb-2">Product Not Found</h1>
-                    <p className="text-gray-400 mb-6">The product you are looking for doesn't exist or has been removed.</p>
+                    <p className="text-gray-400 mb-6">The product you are looking for doesnt exist or has been removed.</p>
                     <button href="/products" className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
