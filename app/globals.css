@@ -12,15 +12,69 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fbf9f9;
+  color: #0f244f;
+  transition: background 0.3s, color 0.3s;
 }
+
+.dark body {
+  background-color: #111827;
+  color: #f9fafb;
+}
+.hero-section {
+  background-color: #f9fafb;
+}
+.dark .badge {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.dark .hero-section {
+  background-color: #1f2937;
+}
+
+.dark .featured {
+  background: linear-gradient(to right, #111827, #1f2937);;
+}
+.dark .nav {
+  background: #0a0a0a;
+  border-bottom: 1px solid #282828;
+}
+.dark .toggle {
+  background: #374151;
+}
+.dark .darkborder {
+  border: 1px solid #374151;
+}
+.dark .darkbordert {
+  border-top: 1px solid #374151;
+}
+.dark .footer {
+  background: #0a0a0a;
+}
+.dark .form {
+  background: #1F2937;
+}
+.dark .inputborder {
+  border: 1px solid #4B5563;
+}
+.dark .loginbg {
+  background-image: linear-gradient(
+    to right,     
+    #111827,      
+    #1F2937,     
+    #374151 
+  );
+}
+.dark .login-card-bg {
+  background-color: rgba(31, 41, 55, 0.8);
+}
+
